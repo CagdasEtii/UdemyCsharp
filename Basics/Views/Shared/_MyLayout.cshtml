@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="~/StaticFiles/lib/bootstrap/dist/css/bootstrap.min.css">
+    @RenderSection("Styles",false)
+    <title>Kurs Uygulaması - @ViewData["Title"]</title>
+</head>
+<body>
+    <header>
+        @await Html.PartialAsync("_MyLayoutNavbar")
+        @RenderSection("Header",false)
+    </header>
+
+    <div class="container mt-3">
+        <main>
+            @RenderBody()
+        </main>
+    </div>
+
+    <script src="~/StaticFiles/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/StaticFiles/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    @RenderSection("Scripts",false)
+
+</body>
+</html>

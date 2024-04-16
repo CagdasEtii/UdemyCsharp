@@ -1,0 +1,61 @@
+@model List<UserInfo>
+
+@section Style{
+    <style>
+        *{
+            text-align: center !important;
+        }
+    </style>
+}
+
+@{
+    ViewData["Title"] = "Toplantıya Katılım Listesi";
+}
+
+<h1 class="h4">@ViewData["Title"]</h1>
+<table class="table table-bordered">
+    <thead>
+        <tr>
+            <td>
+                Adı
+            </td>
+            <td>
+                Katılım Durumu
+            </td>
+            <td></td>
+        </tr>
+    </thead>
+    <tbody>
+
+        @{ int i = 0;}
+        
+        @foreach(var user in Model){
+
+            var state = @user.WillAttend == true ? "Katılıyor" : "Katılmıyor";
+
+            if(@user.WillAttend == true){
+                i++;
+            }
+            
+            var className = @user.WillAttend == true ? "success" : "danger";
+
+            <tr class="table-@className">
+                <td>
+                    @user.Name
+                </td>
+                <td>
+                    @state
+                </td>
+                <td>
+                    <a class="btn btn-sm btn-@className" asp-controller="Meeting" asp-action="Detail" asp-route-id="@user.Id">Detay</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+<div class="card">
+    <div class="card-body">
+        <span>Katılımcı Sayısı : @i</span>
+    </div>
+</div>

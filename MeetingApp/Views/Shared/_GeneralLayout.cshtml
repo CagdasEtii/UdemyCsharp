@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    @RenderSection("MetaData",false)
+    <link rel="stylesheet" href="~/StaticFiles/Lib/Bootstrap533/css/bootstrap.min.css">
+    <link rel="stylesheet" href="~/StaticFiles/Style/GeneralStyle.css">
+    @RenderSection("Style",false)
+    <title>Meeting App - @ViewData["Title"]</title>
+</head>
+<body>
+    <header>
+        @RenderSection("Header",false)
+    </header>
+    
+    <main>
+        <div class="bg-primary text-white p-2 text-center">
+            Meeting App
+        </div>
+        <div class="container mt-3">
+            <div class="row">
+                <div class="col-lg-6 mx-auto">
+                    <div class="card">
+                        <div class="card-body">
+                            @RenderBody()
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        @RenderSection("Footer",false)
+    </footer>
+    <script src="~/StaticFiles/Lib/Bootstrap533/js/bootstrap.min.js"></script>
+    @RenderSection("Script",false)
+</body>
+</html>

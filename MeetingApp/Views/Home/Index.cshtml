@@ -1,0 +1,33 @@
+@model MeetingInfo
+
+@section Style{
+    <style>
+        *{
+            text-align: center !important;
+        }
+    </style>
+}
+
+@{
+    ViewData["Title"] = "Anasayfa";
+    Layout = "_HomeIndexLayout";
+}
+
+<h1 class="h4">@ViewData["Welcome"],</h1>
+<p>Toplantı katılım durumunuzu bildiriniz.</p>
+
+<div class="card my-2">
+    <ul class="list-group list-group-flush">
+        <li class="list-group-item">
+            Toplantı lokasyonu : @Model.Location
+        </li>
+        <li class="list-group-item">
+            Toplantı zamanı : @Model.MeetingDateTime.ToString("dd/MM/yyyy HH:mm:ss")
+        </li>
+        <li class="list-group-item">
+            Katılımcı sayısı : @Model.NumberOfParticipants
+        </li>
+    </ul>
+</div>
+
+<a class="btn btn-sm btn-outline-primary" asp-controller="Meeting" asp-action="Apply">Başvuru Yap</a>

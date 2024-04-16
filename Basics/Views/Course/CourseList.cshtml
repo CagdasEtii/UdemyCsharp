@@ -1,0 +1,15 @@
+@model List<Course>
+
+@section Styles{
+    <link rel="stylesheet" href="~/StaticFiles/css/_CourseListStyle.css">
+}
+
+@{
+    ViewData["Title"] = "Kurs Listesi";
+}
+
+@foreach(var course in Model){
+    @if(course.isActive){
+        @await Html.PartialAsync("_CourseCard",course)
+    }
+}
